@@ -75,6 +75,7 @@
 % Needed to use icons from font-awesome
 % (https://github.com/posquit0/latex-fontawesome)
 \RequirePackage{fontawesome}
+\let\FA\undefined
 \RequirePackage[default,opentype]{sourcesanspro}
 % Needed for the photo ID
 \RequirePackage[skins]{tcolorbox}
@@ -162,6 +163,10 @@
 % Set the FontAwesome font to be up-to-date.
 \newfontfamily\FA[Path=\@fontdir]{FontAwesome}
 % Set font for header (default is Roboto)
+
+% Fix for the \FA conflict
+\let\FA\undefined
+
 \newfontfamily\headerfont[
   Path=\@fontdir,
   UprightFont=*-Regular,
@@ -169,6 +174,9 @@
   BoldFont=*-Bold,
   BoldItalicFont=*-BoldItalic,
 ]{Roboto}
+
+% Re-declare the FontAwesome font family that the template expects
+\newfontfamily\FA[Path=\@fontdir]{FontAwesome}
 
 \newfontfamily\headerfontlight[
   Path=\@fontdir,
